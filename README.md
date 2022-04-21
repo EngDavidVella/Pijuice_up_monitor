@@ -12,9 +12,9 @@ In the terminal window, type the following (without quotation marks):
   
 For more information about crontab: https://www.tutorialspoint.com/unix_commands/crontab.htm
   
-Scroll to be the end of the crontab 'script' and type the following (without quotation marks), this runs the python script every minute:
+Scroll to be the end of the crontab 'script' and type the following (without quotation marks), this runs the python script every minute, you may need to include the path to the python file:
 
-  '* * * * * python3 upmonitor_3.py'
+  '* * * * * python3 upmonitor.py'
   
   
 Reboot your system to start logging. In theory, the command 'sudo service cron reload' should suffice but I had mixed results with this. Rebooting was more certain to get it going.
