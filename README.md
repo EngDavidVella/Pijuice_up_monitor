@@ -1,6 +1,12 @@
 # Pijuice_up_monitor
 Script to monitor battery charge status of PiJuice Pi HAT against time. 
 
+Prerequisit modules:
+  os
+  datetime
+  subprocess
+  pijuice
+
 
 Download script onto your RasPi with the Pijuice already installed and save it in directory of choice.
 
