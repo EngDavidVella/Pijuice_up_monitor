@@ -19,17 +19,15 @@ current_time = str(datetime.datetime.now())
 with open('/proc/uptime', 'r') as f:
          up_seconds = float(f.readline().split()[0])
 
-hours = int(up_seconds//3600)
-mins = int((up_seconds%3600)//60)
-seconds = ((up_seconds%3600)%60)
+hours = int(up_seconds//3600) # get number of hours
+mins = int((up_seconds%3600)//60) # get number of minutes
+seconds = ((up_seconds%3600)%60) # get number of seconds
 
 uptime_str = str(hours)+':'+str(mins)+':'+str(round(seconds,2))
 
 loadaverage = str(subprocess.check_output("uptime", stderr=subprocess.STDOUT, shell=True))[-33:-3]
 
 info = (current_time+', '+uptime_str+', ' + loadaverage+', batt_charge_val: '+batt_charge_val+', batt_error: '+batt_error)
-
-#info = '2022-04-20 14:58:15.908139, 1:26:48.01, load average: 0.20, 0.07, 0.06, batt_charge_val: 98, batt_error: NO_ERROR'
 info_split = info.split()
 info_to_upload = (info_split[0]+',', info_split[1], info_split[2], info_split[5], info_split[6],info_split[7], info_split[9], info_split[11])
 info_to_upload = ''.join(info_to_upload) #tuple to string
